@@ -83,7 +83,7 @@ public class Application {
                 // Exit
                 openForBusiness = false;
                 scanner.close();
-                System.out.println("Exiting the application.");
+                System.out.println("Thank you, enjoy the rest of your day.");
 
             }//end elseIf 4 
             else {
