@@ -1,0 +1,56 @@
+
+
+public class Node<T> {
+    private T data;
+    public Node<T> nextNode;
+
+    /**
+     * Task: creates node a specified data type and sets
+     * next node to null.
+     */
+    public Node(T data) {
+        this.data = data;
+        this.nextNode = null;
+    }//end empty-argument constructor with default parameters 
+
+    /**
+     * Task: creates node that doesn't contain data (is empty)
+     */
+    public Node() {
+        this(null);
+    }//end Node
+
+    /**
+     * Task: returns the data stored in a specific node.
+     * @return data
+     */
+    public T getData() {
+        return data;
+    }//end getData
+
+    /**
+     * Task: sets the data for a specific node 
+     * @param data
+     */
+    public void setData(T data) {
+        this.data = data;
+    }//end setData
+
+    /**
+     * Task: get the next node connected to current node 
+     * @return the next node
+     */
+    public Node<T> getNextNode() {
+        return nextNode;
+    }//end getNextNode
+
+    /**
+     * Task: sets the next node so that it can be linked to current node
+     * @param nextNode
+     */
+    public void setNextNode(Node<T> nextNode) {
+        this.nextNode = nextNode;
+    }//end setNextNode
+    
+}//end class
+
