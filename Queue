@@ -1,0 +1,62 @@
+
+public class Queue<T> {
+	
+	
+    private LinkedList<T> list;
+
+    /**
+     * Task: create a new Queue list (as a linked list)
+     */
+    public Queue() {
+        list = new LinkedList<>();
+    }//end Queue
+
+    /**
+     * Task: adds a new item to the back of the node linked list
+     * @param item
+     */
+    public void enqueue(T item) {
+        Node<T> newNode = new Node<>(item);
+        list.addNode(newNode);
+    }//end enqueue
+
+    /**
+     * Task: removes the element that is in the first node,
+     * throws exception if the queue is empty.
+     * @return the element that is now in the first node
+     */
+    public T dequeue() {
+        if (list.isEmpty()) {
+            throw new IllegalStateException("Queue is empty");
+        }//end if
+        Node<T> frontNode = list.getList();
+        list.head = frontNode.nextNode;
+        if (list.head == null) {
+            list.tail = null;
+        }//end if
+        list.length--;
+        return frontNode.getData();
+    }//end dequeue
+
+    /**
+     * Task: observes whether the list contains any elements.
+     * @return true is empty
+     */
+    public boolean isEmpty() {
+        return list.isEmpty();
+    }//end isEmpty
+
+    /**
+     * Task: iterates through each node and prints the elements.
+     * @param there has to be at least one node with data
+     */
+    public void printQueue() {
+        Node<T> tempNode = list.getList();
+        while (tempNode != null) {
+            System.out.print(tempNode.getData() + " ");
+            tempNode = tempNode.nextNode;
+        }//end while loop
+        
+        System.out.println();
+    }//end printQueue
+}//end class
