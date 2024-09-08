@@ -1,0 +1,105 @@
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+/**
+ * In this program, we're starting a new shift and the employee that
+ * just clocked in sees 3-customers already waiting. This program runs
+ * at the self-ordering kiosk at VegeBurger. 
+ * Customers are allowed to add their name to a queue and remove 
+ * themselves once served. 
+ */
+
+
+public class Application {
+
+    public static void main(String[] args) {
+    	
+    	/**
+    	 * Task: create a new LinkedList named queue and create new Scanner Object.
+    	 */
+        Queue<String> queue = new LinkedList<>();
+        Scanner scanner = new Scanner(System.in);
+
+        /**
+         * initializes 3 customers and enqueues them
+         */
+        queue.add("Bill");
+        queue.add("Alice");
+        queue.add("Bob");
+        /**
+         * Task: decides whether restaurant is open and taking customers 
+         */
+        boolean openForBusiness = true;
+
+        /**
+         * Task: Provides user with interface to add name to order or to 
+         * remove name once finished. Customers can also check to see how 
+         * many customers are here and they can decide to leave. 
+         */
+        while (openForBusiness) {
+            System.out.println("Thank you for choosing Vegeburger, Please Select an option:\n");
+            System.out.println("1. New Customer Ready to Order!");//enqueue
+            System.out.println("2. I'm all done, thanks!");//dequeue
+            System.out.println("3. Looks like a long wait, how many customers are ahead of me?");
+            System.out.println("4. No thanks, I'm going somewhere else.");
+
+            /**
+             * Creates a Scanner object called choice.
+             */
+            int choice = scanner.nextInt();
+            scanner.nextLine();
+
+            /**
+             * if/else statements that work through the appropriate
+             * steps when costumers choose certain options.
+             * Prints the list of people currently in the queue. 
+             * choice 1 = enqueue, choice 2 = dequeue, 
+             * choice 3 = print queue, choice 4 = exit program
+             */
+            if (choice == 1) {
+                System.out.println("Let's start by entering your name, you can place your order on the next screen:");
+                String item = scanner.nextLine();
+                queue.add(item);
+                printQueue(queue);
+            }//end if 1 
+            
+            else if (choice == 2) 
+            {
+                try {
+                    System.out.println("Customer served: " + queue.poll());
+                    printQueue(queue);
+                } catch (Exception e) {
+                    System.out.println("Error: " + e.getMessage());
+                }
+
+            }//end elseIf 2 
+            else if (choice == 3) {
+                // Print queue
+                printQueue(queue);
+
+            }//end elseIf 3 
+            
+            else if (choice == 4) {
+                // Exit
+                openForBusiness = false;
+                scanner.close();
+                System.out.println("Exiting the application.");
+
+            }//end elseIf 4 
+            else {
+                // Invalid choice
+                System.out.println("Invalid choice, please try again.");
+            }//end else
+            
+        }//end while loop
+    }//end main  
+
+    /**
+     * Task: prints queue of String objects
+     * @param queue
+     */
+    private static void printQueue(Queue<String> queue) {
+        System.out.println("Current queue: " + queue);
+    }//end printQueue
+    
+}//end class
