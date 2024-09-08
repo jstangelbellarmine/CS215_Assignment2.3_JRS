@@ -3,30 +3,50 @@
  * @author njohnson3
  *
  */
+
 public class LinkedList<T> {
 	
+	/**
+	 * creates first/last nodes on the list as well as a variable length
+	 */
 	Node <T> head;
 	int length;
 	Node<T> tail;
 	
+	/**
+	 * Task: instantiates default LinkedList
+	 */
 	public LinkedList()
 	{
 		head=null;
 		length=0;
 		tail=head;
-	}//end LinkedList
+	}//end LinkedList empty-constructor
 	
+	/**
+	 * Task: determines if LinkedList is empty or not
+	 * @return true is empty, otherwise return false
+	 */
 	public boolean isEmpty()
 	{
 		if (head==null) { return true;}
 		else return false;
 	}//end isEmpty
 	
+	/**
+	 * gets the lead element in the list
+	 * @return head element
+	 */
 	public Node <T> getList()
 	{
 		return head;
 	}//end getList
 	
+	/**
+	 * Task: add node to the list and then points to the next node
+	 * Finally, increases length
+	 * @param aNode
+	 */
 	public void addNode(Node <T> aNode)
 	{
 		if (isEmpty() ) {
